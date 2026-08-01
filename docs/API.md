@@ -8,11 +8,11 @@ All responses share a common envelope:
 ```
 Errors:
 ```json
-{ "success": false, "message": "Validation failed", "details": [ ] }
+{ "success": false, "message": "Validation failed", "details": [ ... ] }
 ```
 
-Auth: send the access token in the `Authorization` header as a Bearer credential.
-The refresh token is managed automatically via an httpOnly cookie.
+Auth: send the access token as `Authorization: Bearer <access-token>`. The refresh
+token is managed automatically via an httpOnly cookie.
 
 ---
 

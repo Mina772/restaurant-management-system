@@ -5,7 +5,7 @@ A classic **MERN** three-tier system split into two deployables:
 
 ```
 ┌────────────┐     HTTPS / WSS     ┌──────────────┐     TCP      ┌──────────┐
-│  React SPA │  ───────────────▶   │  Express API │  ────────▶  │ MongoDB  │
+│  React SPA │  ───────────────▶   │  Express API │  ─────────▶  │ MongoDB  │
 │  (Vite)    │  ◀───────────────   │  + Socket.io │  ◀─────────  │          │
 └────────────┘   REST + realtime   └──────────────┘              └──────────┘
                                           │
@@ -31,8 +31,7 @@ routes/         HTTP surface — path → middleware → controller
   is normalized by the central error middleware into a consistent JSON envelope.
 
 ## Authentication & sessions
-- **Access token** — short-lived JWT (default 15m), sent as a Bearer credential in
-  the `Authorization` header.
+- **Access token** — short-lived JWT (default 15m), sent as `Authorization: Bearer`.
 - **Refresh token** — long-lived JWT (default 7d) in an `httpOnly` cookie, and its
   **hash** is stored on the user (`refreshTokens[]`). On refresh, the old hash is
   removed and a new pair issued (**rotation**). Reuse of a revoked token wipes all
